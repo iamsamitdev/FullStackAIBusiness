@@ -4,6 +4,11 @@
 
 [Click here to download the training document](https://bit.ly/fullstack-ai-business)
 
+1. [Section 1: Cloning the Repository and Setting Up](#section-1-cloning-the-repository-and-setting-up)
+    - การโคลนโปรเจคจาก GitHub
+    - การติดตั้ง dependencies และการตั้งค่า environment variables
+    - Workshop: รันโปรเจคและตรวจสอบว่า API ทำงานได้หรือไม่
+
 2. [Section 2: Vector Database Fundamentals](#section-2-vector-database-fundamentals)
     - ความเข้าใจเรื่อง Embeddings และ Vector Store
     - การตั้งค่า Neon Serverless Postgres pgVector เพื่อเก็บข้อมูล
@@ -40,6 +45,48 @@
     - การทดสอบการทำงานของ Chatbot บน LINE อย่างเต็มรูปแบบ
     - Workshop: ดีพลอยโปรเจคและทดสอบการใช้งานจริง
 
+---
+### Section 1: Cloning the Repository and Setting Up
+
+#### 1.1 โคลนโปรเจคจาก GitHub
+```bash
+git clone https://github.com/iamsamitdev/FullStackAIBusiness
+cd FullStackAIBusiness/landingpage
+```
+
+#### 1.2 ติดตั้ง Dependencies:
+
+```bash
+npm install
+```
+
+#### 1.3 ตั้งค่า Environment Variables
+สร้างไฟล์ `.env` และเพิ่ม:
+```env
+# Connection String ของฐานข้อมูล PostgreSQL
+# DATABASE_URI="postgresql://postgres:123456@localhost:5432/blog_db"
+
+# Recommended for most uses
+DATABASE_URI=postgresql://username:password@hostname:port/neondb?sslmode=verify-full
+
+# สร้างรหัสอะไรก็ได้ยาวๆ สำหรับความปลอดภัย
+PAYLOAD_SECRET=my_super_secret_key
+
+# Vercel Blob Storage Tokens
+BLOB_READ_WRITE_TOKEN="your_blob_read_write_token_here"
+
+# Facebook Marketing
+NEXT_PUBLIC_FACEBOOK_PIXEL_ID=your_facebook_pixel_id_here
+FB_ACCESS_TOKEN=your_facebook_access_token_here
+```
+
+#### 1.4 รันโปรเจค:
+```bash
+npm run dev
+```
+ทดสอบว่าโปรเจคทำงานได้ที่ `http://localhost:3000`
+
+---
 
 ### Section 2: Vector Database Fundamentals
 
