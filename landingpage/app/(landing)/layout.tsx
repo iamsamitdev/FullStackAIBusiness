@@ -24,9 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark:bg-slate-950">
       <body
-        className={`${inter.variable} ${anuphan.variable} antialiased`}
+        className={`${inter.variable} ${anuphan.variable} antialiased bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100`}
       >
         <FacebookPixel />
         {children}

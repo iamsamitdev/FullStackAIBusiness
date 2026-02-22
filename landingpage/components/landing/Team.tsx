@@ -4,31 +4,31 @@ import Link from "next/link"
 function Team() {
   const teamMembers = [
     {
-      name: "Olivia Andrium",
-      role: "Project Manager",
-      image: "/images/team/team1.webp",
+      name: "ฝ่ายบริการลูกค้า",
+      role: "Customer Service",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=360&h=370&fit=crop",
       socials: {
-        facebook: "/",
+        facebook: "https://facebook.com/SmartElectronicThailand",
         twitter: "/",
         linkedin: "/",
       },
     },
     {
-      name: "Jemse Kemorun",
-      role: "Frontend Developer",
-      image: "/images/team/team2.webp",
+      name: "ฝ่ายจัดส่ง",
+      role: "Shipping & Logistics",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=360&h=370&fit=crop",
       socials: {
-        facebook: "/",
+        facebook: "https://facebook.com/SmartElectronicThailand",
         twitter: "/",
         linkedin: "/",
       },
     },
     {
-      name: "Avi Pestarica",
-      role: "Product Designer",
-      image: "/images/team/team3.webp",
+      name: "ฝ่ายคุณภาพสินค้า",
+      role: "Quality Assurance",
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=360&h=370&fit=crop",
       socials: {
-        facebook: "/",
+        facebook: "https://facebook.com/SmartElectronicThailand",
         twitter: "/",
         linkedin: "/",
       },
@@ -41,14 +41,14 @@ function Team() {
         {/* Section Header */}
         <div className="relative mx-auto mb-12 max-w-155 pt-6 text-center md:mb-20 lg:pt-16">
           {/* Faded Title */}
-          <span className="absolute left-1/2 top-0 -translate-x-1/2 text-[80px] font-bold leading-none text-slate-100 dark:text-slate-800/50 select-none lg:text-[100px]">
-            OUR
+          <span className="absolute left-1/2 top-0 -translate-x-1/2 text-[80px] font-bold leading-none text-slate-100 dark:text-slate-600/50 select-none lg:text-[100px]">
+            TEAM
           </span>
           <h2 className="relative mb-5 text-3xl font-semibold text-slate-900 dark:text-white sm:text-4xl md:text-[50px] md:leading-15">
-            Meet With Our Creative Dedicated Team
+            ทีมงานพร้อมดูแลคุณ
           </h2>
           <p className="text-base text-slate-600 dark:text-slate-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.
+            แอดมินให้บริการ วันจันทร์–เสาร์ เวลา 09.00–18.00 น. พร้อมตอบคำถามและช่วยเหลือลูกค้าทุกช่องทาง
           </p>
         </div>
 

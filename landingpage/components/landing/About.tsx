@@ -7,34 +7,34 @@ function About() {
   const [activeTab, setActiveTab] = useState("about")
 
   const tabs = [
-    { id: "about", label: "About Us" },
-    { id: "mission", label: "Mission" },
-    { id: "vision", label: "Vision" },
+    { id: "about", label: "เกี่ยวกับเรา" },
+    { id: "mission", label: "พันธกิจ" },
+    { id: "vision", label: "วิสัยทัศน์" },
   ]
 
   const tabContent = {
     about: {
-      title: "DB, Auth, Stripe, Sanity, and More",
+      title: "Smart Electronic Thailand - ศูนย์รวมอุปกรณ์เสริมสมาร์ทโฟนครบวงจร",
       paragraphs: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum sapien ac leo cursus dignissim. In ac lectus vel orci accumsan ultricies at in libero accumsan.",
-        "Phasellus ex massa, facilisis ac vestibulum eget, ultrices quis nulla. Integer vitae magna lacus. Sed venenatis auctor dolor.",
-        "Phasellus ex massa, facilisis ac vestibulum eget, ultrices quis nulla. Integer vitae magna lacus. Sed venenatis auctor dolor.",
+        "ร้าน Smart Electronic Thailand เปิดให้บริการอย่างเป็นทางการมาตั้งแต่ปี 2020 มีประสบการณ์ดูแลลูกค้ามาอย่างยาวนาน จำหน่ายอุปกรณ์เสริมสำหรับสมาร์ทโฟนครบวงจร ไม่ว่าจะเป็น เคสกันกระแทก ฟิล์มกระจก/ไฮโดรเจล สายชาร์จ Fast Charge หัวชาร์จ Power Bank หูฟัง และ Gadget ล้ำๆ",
+        "สินค้าทุกชิ้นในร้านเป็นของแท้ 100% เราเป็นตัวแทนจำหน่ายที่ถูกต้อง สินค้ามีกล่องและซีลครบถ้วน มั่นใจได้ในคุณภาพและการบริการ",
+        "ที่ตั้งหน้าร้าน: เลขที่ 5 ซอยลาดพร้าววังหิน 68 ถนนลาดพร้าววังหิน แขวงลาดพร้าว เขตลาดพร้าว กรุงเทพมหานคร 10230 ลูกค้าสามารถแวะมารับสินค้าได้ (กรุณานัดหมายล่วงหน้า)",
       ],
     },
     mission: {
-      title: "Our Mission is to Empower Businesses",
+      title: "พันธกิจของเรา - คัดสรรสินค้าคุณภาพเพื่อลูกค้า",
       paragraphs: [
-        "We strive to provide the best tools and resources for businesses to succeed in the digital age. Our platform is designed to be intuitive, powerful, and scalable.",
-        "Our team is dedicated to continuous improvement and innovation, ensuring that our clients always have access to the latest technologies and best practices.",
-        "We believe in building long-term partnerships with our clients, providing ongoing support and guidance to help them achieve their goals.",
+        "เรามุ่งมั่นคัดสรรอุปกรณ์เสริมสมาร์ทโฟนที่มีคุณภาพดี ใช้งานได้จริง ในราคาที่เหมาะสม เพื่อให้ลูกค้าได้รับสินค้าที่คุ้มค่าทุกการสั่งซื้อ",
+        "ให้บริการลูกค้าด้วยความใส่ใจ แอดมินพร้อมตอบคำถามและช่วยเหลือลูกค้าทุกช่องทาง ทั้ง Line Official, Facebook และ Email",
+        "บริการจัดส่งรวดเร็ว ตัดรอบจัดส่ง 14.00 น. ทุกวัน กรุงเทพฯ และปริมณฑลได้รับของใน 1-2 วัน ต่างจังหวัดได้รับของใน 2-3 วันทำการ",
       ],
     },
     vision: {
-      title: "Building the Future of Digital Business",
+      title: "วิสัยทัศน์ - เป็นร้านอุปกรณ์เสริมสมาร์ทโฟนอันดับ 1 ที่ลูกค้าไว้วางใจ",
       paragraphs: [
-        "We envision a world where every business, regardless of size, has access to powerful digital tools that enable them to compete and thrive in the global marketplace.",
-        "Our vision extends beyond just providing software – we aim to create an ecosystem that fosters innovation, collaboration, and sustainable growth.",
-        "By 2030, we aim to have empowered over 1 million businesses worldwide, helping them transform their operations and achieve unprecedented success.",
+        "เราตั้งเป้าเป็นร้านอุปกรณ์เสริมสมาร์ทโฟนออนไลน์ชั้นนำของประเทศไทย ที่ลูกค้าไว้วางใจเลือกซื้อสินค้าคุณภาพดี ราคาเป็นธรรม",
+        "พัฒนาบริการอย่างต่อเนื่อง ทั้งระบบการสั่งซื้อ การชำระเงิน และการจัดส่ง เพื่อให้ลูกค้าได้รับประสบการณ์การช้อปปิ้งที่ดีที่สุด",
+        "สร้างความสัมพันธ์ที่ดีกับลูกค้าทุกคน ด้วยบริการหลังการขายที่เชื่อถือได้ รับประกันสินค้า 6 เดือน - 1 ปี พร้อมดูแลทุกปัญหา",
       ],
     },
   }
@@ -47,14 +47,14 @@ function About() {
         {/* Section Header */}
         <div className="relative mx-auto mb-12 max-w-155 pt-6 text-center md:mb-20 lg:pt-16">
           {/* Faded Title */}
-          <span className="absolute left-1/2 top-0 -translate-x-1/2 text-[80px] font-bold leading-none text-slate-100 dark:text-slate-800/50 select-none lg:text-[100px]">
+          <span className="absolute left-1/2 top-0 -translate-x-1/2 text-[80px] font-bold leading-none text-slate-100 dark:text-slate-600/50 select-none lg:text-[100px]">
             ABOUT
           </span>
           <h2 className="relative mb-5 text-3xl font-semibold text-slate-900 dark:text-white sm:text-4xl md:text-[50px] md:leading-15">
-            Know Details About Our Company
+            เกี่ยวกับ Smart Electronic Thailand
           </h2>
           <p className="text-base text-slate-600 dark:text-slate-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.
+            ร้านอุปกรณ์เสริมสมาร์ทโฟนครบวงจร สินค้าของแท้ 100% คุณภาพดี ราคาเป็นธรรม บริการจัดส่งรวดเร็วทั่วประเทศ
           </p>
         </div>
 
@@ -89,8 +89,8 @@ function About() {
                 aria-pressed={activeTab === tab.id}
                 className={`w-full border-b px-2 pb-6 pt-8 font-medium text-base lg:pb-7 lg:pt-9 transition-colors ${
                   activeTab === tab.id
-                    ? "border-blue-600 text-blue-600"
-                    : "border-slate-200 text-slate-600 hover:border-blue-600 hover:text-blue-600 dark:border-slate-700 dark:text-white dark:hover:border-blue-500"
+                    ? "border-blue-600 text-blue-600 dark:border-blue-500 dark:text-blue-400"
+                    : "border-slate-200 text-slate-600 hover:border-blue-600 hover:text-blue-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-500 dark:hover:text-blue-400"
                 }`}
               >
                 {tab.label}
@@ -107,8 +107,8 @@ function About() {
                   {/* Image 1 - Top Left */}
                   <div className="absolute left-0 top-0 w-full max-w-86 aspect-86/121">
                     <Image
-                      alt="about image 1"
-                      src="/images/about/about2.webp"
+                      alt="สายชาร์จและอุปกรณ์เสริม"
+                      src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=344&h=484&fit=crop"
                       fill
                       sizes="100vw"
                       className="object-cover"
@@ -118,8 +118,8 @@ function About() {
                   {/* Image 2 - Center Right with blur backdrop */}
                   <div className="absolute right-0 top-1/2 z-10 w-full max-w-78.75 -translate-y-1/2 aspect-53/66">
                     <Image
-                      alt="about image 2"
-                      src="/images/about/about1.webp"
+                      alt="Power Bank และอุปกรณ์ชาร์จ"
+                      src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=315&h=396&fit=crop"
                       fill
                       sizes="100vw"
                       className="object-cover"

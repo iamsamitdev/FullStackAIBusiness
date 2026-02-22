@@ -7,24 +7,27 @@ import Team from '@/components/landing/Team'
 import Testimonial from '@/components/landing/Testimonial'
 import Blog from '@/components/landing/Blog'
 import CTA from '@/components/landing/CTA'
+import HowToOrder from '@/components/landing/HowToOrder'
+import ReturnPolicy from '@/components/landing/ReturnPolicy'
+import Contact from '@/components/landing/Contact'
 import ScrollToTop from '@/components/landing/ScrollToTop'
 
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Home | My AI Business",
-  description: "Build and grow your AI-powered business with ease.",
+  title: "Smart Electronic Thailand | อุปกรณ์เสริมสมาร์ทโฟนครบวงจร",
+  description: "ร้านอุปกรณ์เสริมสมาร์ทโฟนครบวงจร สินค้าของแท้ 100% รับประกัน 6 เดือน - 1 ปี จัดส่งรวดเร็ว ส่งฟรีทั่วไทยเมื่อซื้อครบ 500 บาท",
   keywords: [
-    "AI Business",
-    "Artificial Intelligence",
-    "AI Solutions",
-    "Business Growth",
-    "AI Tools",
-    "Automation",
-    "Machine Learning",
-    "Data Analytics",
-    "AI Services",
-    "Tech Innovation",
+    "อุปกรณ์เสริมสมาร์ทโฟน",
+    "เคสมือถือ",
+    "สายชาร์จ",
+    "หัวชาร์จ",
+    "Power Bank",
+    "หูฟัง TWS",
+    "ฟิล์มกระจก",
+    "Smart Electronic Thailand",
+    "อุปกรณ์มือถือของแท้",
+    "ร้านอุปกรณ์มือถือออนไลน์",
   ],
 }
 
@@ -35,10 +38,13 @@ export default function Home() {
       <Hero />
       <Features />
       <About />
+      <HowToOrder />
+      <ReturnPolicy />
       <Team />
       <Testimonial />
       <Blog />
       <CTA />
+      <Contact />
       <Footer />
       <ScrollToTop />
     </div>

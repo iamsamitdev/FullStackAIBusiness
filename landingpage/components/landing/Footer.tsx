@@ -41,17 +41,17 @@ const SendIcon = () => (
 
 function Footer() {
   const companyLinks = [
-    { label: "Home", href: "/" },
-    { label: "Products", href: "/" },
-    { label: "Careers", href: "/", badge: "Hiring" },
-    { label: "Pricing", href: "/" },
+    { label: "หน้าแรก", href: "/" },
+    { label: "สินค้าทั้งหมด", href: "/#features" },
+    { label: "โปรโมชั่น", href: "/", badge: "Hot" },
+    { label: "วิธีสั่งซื้อ", href: "/" },
   ]
 
   const supportLinks = [
-    { label: "Company", href: "/" },
-    { label: "Press Media", href: "/" },
-    { label: "Our Blog", href: "/blog" },
-    { label: "Account", href: "/auth/signin" },
+    { label: "เกี่ยวกับเรา", href: "/#about" },
+    { label: "นโยบายคืน/เปลี่ยนสินค้า", href: "/" },
+    { label: "บทความ", href: "/blog" },
+    { label: "ติดต่อเรา", href: "/#contact" },
   ]
 
   const onSubmit = async () => {
@@ -91,7 +91,7 @@ function Footer() {
                 />
               </Link>
               <p className="mb-10 text-base text-slate-600 dark:text-slate-400">
-                เราคือผู้ให้บริการด้าน AI Solutions ครบวงจร เพื่อเสริมศักยภาพธุรกิจของคุณ
+                ร้านอุปกรณ์เสริมสมาร์ทโฟนครบวงจร สินค้าของแท้ 100% รับประกันสินค้าทุกชิ้น
               </p>
               {/* Social Links */}
               <div className="flex items-center space-x-5">
@@ -131,7 +131,7 @@ function Footer() {
           <div className="w-1/2 px-4 md:w-3/12 lg:w-3/12 xl:w-2/12">
             <div className="mb-20">
               <h3 className="mb-9 text-2xl font-medium text-slate-900 dark:text-white">
-                Company
+                สินค้า
               </h3>
               <ul className="space-y-4">
                 {companyLinks.map((link, index) => (
@@ -157,7 +157,7 @@ function Footer() {
           <div className="w-1/2 px-4 md:w-3/12 lg:w-3/12 xl:w-2/12">
             <div className="mb-20">
               <h3 className="mb-9 text-2xl font-medium text-slate-900 dark:text-white">
-                Support
+                ข้อมูล
               </h3>
               <ul className="space-y-4">
                 {supportLinks.map((link, index) => (
@@ -178,29 +178,29 @@ function Footer() {
           <div className="w-full px-4 sm:w-1/2 md:w-5/12 lg:w-3/12 xl:w-2/12">
             <div className="mb-20">
               <h3 className="mb-9 text-2xl font-medium text-slate-900 dark:text-white">
-                Get in touch
+                ติดต่อเรา
               </h3>
               <div className="space-y-7">
                 <div>
                   <p className="text-base text-slate-600 dark:text-slate-400">
-                    Toll Free Customer Care
+                    Line Official
                   </p>
                   <Link
-                    href="tel:+(1) 123 456 7890"
+                    href="https://line.me/ti/p/@SmartElecTH"
                     className="text-base text-slate-900 hover:text-blue-600 underline dark:text-white dark:hover:text-blue-400 transition"
                   >
-                    +(66) 0889997711
+                    @SmartElecTH
                   </Link>
                 </div>
                 <div>
                   <p className="text-base text-slate-600 dark:text-slate-400">
-                    Need live support?
+                    Email Support
                   </p>
                   <Link
-                    href="mailto:contact@email.com"
+                    href="mailto:support@smartelectronic.co.th"
                     className="text-base text-slate-900 hover:text-blue-600 underline dark:text-white dark:hover:text-blue-400 transition"
                   >
-                   contact@gmail.com
+                    support@smartelectronic.co.th
                   </Link>
                 </div>
               </div>
@@ -211,10 +211,10 @@ function Footer() {
           <div className="w-full px-4 sm:w-1/2 md:w-5/12 lg:w-5/12 xl:w-3/12">
             <div className="mb-20">
               <h3 className="text-slate-900 mb-9 text-2xl font-medium dark:text-white">
-                Newsletter
+                รับข่าวสาร
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6 text-base">
-                Subscribe to receive future updates
+                สมัครรับข่าวสารโปรโมชั่นและสิทธิพิเศษ
               </p>
               <form className="relative" onSubmit={onSubmit}>
                 <input
@@ -239,7 +239,7 @@ function Footer() {
         <div className="border-t border-slate-200 dark:border-slate-700">
           <div className="-mx-4 flex flex-wrap py-5 md:py-7">
             {/* Bottom Links */}
-            <div className="w-full px-4 md:w-1/2 lg:w-2/3">
+            <div className="w-full px-4 md:w-1/2 lg:w-1/2">
               <div className="mb-5 flex items-center justify-center space-x-5 border-b border-slate-200 pb-5 dark:border-slate-700 md:mb-0 md:justify-start md:border-0 md:pb-0">
                 <Link
                   href="#"
@@ -263,10 +263,10 @@ function Footer() {
             </div>
 
             {/* Copyright */}
-            <div className="w-full px-4 md:w-1/2 lg:w-1/3">
+            <div className="w-full px-4 md:w-1/2 lg:w-1/2">
               <div>
                 <p className="text-center text-base text-slate-600 dark:text-slate-400 lg:text-right">
-                  © 2026 Startup. All rights reserved
+                  © 2026 Smart Electronic Thailand. All rights reserved
                 </p>
               </div>
             </div>

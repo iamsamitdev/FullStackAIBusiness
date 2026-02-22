@@ -19,6 +19,30 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    // Custom Admin Panel Branding
+    components: {
+      // Logo ที่แสดงใน Sidebar และหน้า Login
+      graphics: {
+        Logo: '/components/payload/Logo',
+        Icon: '/components/payload/Icon',
+      },
+    },
+    // Metadata สำหรับหน้า Admin
+    meta: {
+      titleSuffix: '- MyBizApp Admin',
+      icons: [
+        { url: '/images/logo/favicon.ico' }
+      ],
+      openGraph: {
+        images: ['/images/logo/og-image.png'],
+      },
+    },
+    // Auto Login สำหรับ Development (ปิดก่อน Production)
+    // autoLogin: {
+    //   email: 'admin@example.com',
+    //   password: 'password123',
+    //   prefillOnly: true,
+    // },
   },
   collections: [Posts, Users, Media],
   editor: lexicalEditor(), // ตัวเขียนบทความแบบใหม่

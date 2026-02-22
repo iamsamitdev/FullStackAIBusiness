@@ -2,25 +2,80 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect, useCallback, useSyncExternalStore } from "react"
+
+// Theme store for managing dark mode
+const themeStore = {
+  getSnapshot: (): boolean => {
+    if (typeof window === 'undefined') return false
+    return document.documentElement.classList.contains('dark')
+  },
+  getServerSnapshot: (): boolean => false,
+  subscribe: (callback: () => void): (() => void) => {
+    // Listen for class changes on documentElement
+    const observer = new MutationObserver(callback)
+    if (typeof window !== 'undefined') {
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+      })
+    }
+    return () => observer.disconnect()
+  },
+  setTheme: (isDark: boolean): void => {
+    if (isDark) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    }
+  },
+  initTheme: (): void => {
+    if (typeof window === 'undefined') return
+    const savedTheme = localStorage.getItem('theme')
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }
+}
 
 function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  
+  // Use useSyncExternalStore for dark mode state
+  const isDarkMode = useSyncExternalStore(
+    themeStore.subscribe,
+    themeStore.getSnapshot,
+    themeStore.getServerSnapshot
+  )
+
+  // Initialize theme on mount
+  useEffect(() => {
+    themeStore.initTheme()
+  }, [])
+
+  const toggleDarkMode = useCallback(() => {
+    themeStore.setTheme(!isDarkMode)
+  }, [isDarkMode])
 
   const navLinks = [
-    { href: "/#home", label: "Home" },
-    { href: "/#features", label: "Features" },
-    { href: "/#about", label: "About" },
-    { href: "/#team", label: "Team" },
-    { href: "/#testimonial", label: "Testimonial" },
-    { href: "/blog", label: "Blog" },
+    { href: "/#home", label: "หน้าแรก" },
+    { href: "/#features", label: "บริการ" },
+    { href: "/#about", label: "เกี่ยวกับเรา" },
+    { href: "/#team", label: "ทีมงาน" },
+    { href: "/#testimonial", label: "รีวิว" },
+    { href: "/blog", label: "บทความ" },
   ]
 
   const pagesLinks = [
-    { href: "/docs", label: "Docs" },
-    { href: "/support", label: "Support" },
-    { href: "/error", label: "Error 404" },
+    { href: "/#how-to-order", label: "คู่มือการสั่งซื้อ" },
+    { href: "/#return-policy", label: "นโยบายคืนสินค้า" },
+    { href: "/#contact", label: "ติดต่อเรา" },
   ]
 
   return (
@@ -73,7 +128,7 @@ function Navbar() {
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     onMouseEnter={() => setIsDropdownOpen(true)}
                   >
-                    More
+                  เพิ่มเติม
                     <span className="pl-2">
                       <svg 
                         width="14" 
@@ -115,31 +170,54 @@ function Navbar() {
         {/* Right Side Actions */}
         <div className="absolute right-5 top-1/2 z-50 flex -translate-y-1/2 items-center lg:static lg:translate-y-0 lg:w-45 lg:justify-end shrink-0">
 
-          {/* Theme Toggle */}
-          {/*
-          <button 
-            className="text-slate-600 dark:text-slate-300 flex h-10 w-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            aria-label="Toggle theme"
-          >
-            {/* Moon icon (light mode) */}
-            {/* <svg viewBox="0 0 23 23" className="h-5 w-5 stroke-current dark:hidden" fill="none">
-              <path d="M9.55078 1.5C5.80078 1.5 1.30078 5.25 1.30078 11.25C1.30078 17.25 5.80078 21.75 11.8008 21.75C17.8008 21.75 21.5508 17.25 21.5508 13.5C13.3008 18.75 4.30078 9.75 9.55078 1.5Z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg> */}
-            {/* Sun icon (dark mode) */}
-            {/* <svg viewBox="0 0 25 24" className="hidden h-5 w-5 dark:block" fill="currentColor">
-              <path d="M12.0508 16.5C10.8573 16.5 9.71271 16.0259 8.8688 15.182C8.02489 14.3381 7.55078 13.1935 7.55078 12C7.55078 10.8065 8.02489 9.66193 8.8688 8.81802C9.71271 7.97411 10.8573 7.5 12.0508 7.5C13.2443 7.5 14.3888 7.97411 15.2328 8.81802C16.0767 9.66193 16.5508 10.8065 16.5508 12C16.5508 13.1935 16.0767 14.3381 15.2328 15.182C14.3888 16.0259 13.2443 16.5 12.0508 16.5ZM12.0508 18C13.6421 18 15.1682 17.3679 16.2934 16.2426C17.4186 15.1174 18.0508 13.5913 18.0508 12C18.0508 10.4087 17.4186 8.88258 16.2934 7.75736C15.1682 6.63214 13.6421 6 12.0508 6C10.4595 6 8.93336 6.63214 7.80814 7.75736C6.68292 8.88258 6.05078 10.4087 6.05078 12C6.05078 13.5913 6.68292 15.1174 7.80814 16.2426C8.93336 17.3679 10.4595 18 12.0508 18ZM12.0508 0C12.2497 0 12.4405 0.0790176 12.5811 0.21967C12.7218 0.360322 12.8008 0.551088 12.8008 0.75V3.75C12.8008 3.94891 12.7218 4.13968 12.5811 4.28033C12.4405 4.42098 12.2497 4.5 12.0508 4.5C11.8519 4.5 11.6611 4.42098 11.5205 4.28033C11.3798 4.13968 11.3008 3.94891 11.3008 3.75V0.75C11.3008 0.551088 11.3798 0.360322 11.5205 0.21967C11.6611 0.0790176 11.8519 0 12.0508 0V0ZM12.0508 19.5C12.2497 19.5 12.4405 19.579 12.5811 19.7197C12.7218 19.8603 12.8008 20.0511 12.8008 20.25V23.25C12.8008 23.4489 12.7218 23.6397 12.5811 23.7803C12.4405 23.921 12.2497 24 12.0508 24C11.8519 24 11.6611 23.921 11.5205 23.7803C11.3798 23.6397 11.3008 23.4489 11.3008 23.25V20.25C11.3008 20.0511 11.3798 19.8603 11.5205 19.7197C11.6611 19.579 11.8519 19.5 12.0508 19.5ZM24.0508 12C24.0508 12.1989 23.9718 12.3897 23.8311 12.5303C23.6905 12.671 23.4997 12.75 23.3008 12.75H20.3008C20.1019 12.75 19.9111 12.671 19.7705 12.5303C19.6298 12.3897 19.5508 12.1989 19.5508 12C19.5508 11.8011 19.6298 11.6103 19.7705 11.4697C19.9111 11.329 20.1019 11.25 20.3008 11.25H23.3008C23.4997 11.25 23.6905 11.329 23.8311 11.4697C23.9718 11.6103 24.0508 11.8011 24.0508 12ZM4.55078 12C4.55078 12.1989 4.47176 12.3897 4.33111 12.5303C4.19046 12.671 3.99969 12.75 3.80078 12.75H0.800781C0.601869 12.75 0.411103 12.671 0.270451 12.5303C0.129799 12.3897 0.0507813 12.1989 0.0507812 12C0.0507813 11.8011 0.129799 11.6103 0.270451 11.4697C0.411103 11.329 0.601869 11.25 0.800781 11.25H3.80078C3.99969 11.25 4.19046 11.329 4.33111 11.4697C4.47176 11.6103 4.55078 11.8011 4.55078 12Z" />
-            </svg>
-          </button> */}
+          <div className="flex items-center space-x-3">
+            {/* Theme Toggle */}
+            <button 
+              onClick={toggleDarkMode}
+              className="text-slate-600 dark:text-slate-300 flex h-10 w-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              aria-label="Toggle theme"
+            >
+              {/* Moon icon (show in light mode) */}
+              <svg 
+                viewBox="0 0 24 24" 
+                className={`h-5 w-5 transition-all ${isDarkMode ? 'hidden' : 'block'}`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+              {/* Sun icon (show in dark mode) */}
+              <svg 
+                viewBox="0 0 24 24" 
+                className={`h-5 w-5 transition-all ${isDarkMode ? 'block' : 'hidden'}`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            </button>
 
-          <div className="flex items-center space-x-4">
             {/* Sign In Button */}
             <Link 
               href="/admin" 
               className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap rounded-md px-4 py-2 lg:px-6 lg:py-2.5 text-center text-white text-sm lg:text-base font-medium transition-colors"
             >
-              Sign In
+              เข้าสู่ระบบ
             </Link>
-            
           </div>
 
           {/* Mobile Menu Toggle */}

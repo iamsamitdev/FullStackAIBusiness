@@ -21,9 +21,9 @@ const CalendarIcon = () => (
 function formatDate(dateString: string | null | undefined): string {
   if (!dateString) return ''
   const date = new Date(dateString)
-  return date.toLocaleDateString('en-US', { 
+  return date.toLocaleDateString('th-TH', { 
+    day: 'numeric',
     month: 'short', 
-    day: 'numeric', 
     year: 'numeric' 
   })
 }
@@ -44,16 +44,14 @@ async function Blog() {
         {/* Section Header */}
         <div className="relative mx-auto mb-12 max-w-155 pt-6 text-center md:mb-20 lg:pt-16">
           {/* Faded Title */}
-          <span className="absolute left-1/2 top-0 -translate-x-1/2 text-[80px] font-bold leading-none text-slate-100 dark:text-slate-800/50 select-none lg:text-[100px]">
+          <span className="absolute left-1/2 top-0 -translate-x-1/2 text-[80px] font-bold leading-none text-slate-100 dark:text-slate-600/50 select-none lg:text-[100px]">
             BLOGS
           </span>
           <h2 className="relative mb-5 text-3xl font-semibold text-slate-900 dark:text-white sm:text-4xl md:text-[50px] md:leading-15">
-            Latest News &amp; Articles From Our Blog
+            บทความและข่าวสารจากร้าน
           </h2>
           <p className="text-base text-slate-600 dark:text-slate-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-            convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
-            ante in maximus.
+            อัปเดตเทรนด์อุปกรณ์เสริมสมาร์ทโฟน เคล็ดลับการดูแลอุปกรณ์ และโปรโมชั่นพิเศษจาก Smart Electronic Thailand
           </p>
         </div>
 

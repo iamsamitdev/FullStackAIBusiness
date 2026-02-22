@@ -10,26 +10,26 @@ function Testimonial() {
     {
       id: 1,
       quote:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum sapien ac leo cursus dignissim. In ac lectus vel orci accumsan ultricies at in libero accumsan Lorem Ipsum has been the industry's standard",
-      name: "Musharof Chy",
-      role: "Founder @ Pimjo",
-      image: "/images/testimonial/testimonial1.webp",
+        "สั่งซื้อเคสกันกระแทกมา 3 ครั้งแล้ว สินค้าคุณภาพดีมาก กันกระแทกได้จริง ไม่มีขอบเยิน จัดส่งไวมาก สั่งวันนี้พรุ่งนี้ของได้รับเลย แอดมินตอบไว แนะนำดีมากครับ!",
+      name: "คุณสมชาย",
+      role: "ลูกค้าประจำ @ กรุงเทพฯ",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
     },
     {
       id: 2,
       quote:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum sapien ac leo cursus dignissim. In ac lectus vel orci accumsan ultricies at in libero accumsan Lorem Ipsum has been the industry's standard",
-      name: "Naimur Rahman",
-      role: "Product Designer @ Pimjo",
-      image: "/images/testimonial/testimonial2.webp",
+        "ซื้อ Power Bank ไปใช้ เป็นของแท้ ชาร์จเร็วมาก มีปัญหาเคลมได้ตามประกัน 1 ปี สมัครสมาชิกลด 10% ทุกออเดอร์ดีมาก จะกลับมาซื้ออีกแน่นอนครับ",
+      name: "คุณพิมพ์",
+      role: "ลูกค้าประจำ @ เชียงใหม่",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
     },
     {
       id: 3,
       quote:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce condimentum sapien ac leo cursus dignissim. In ac lectus vel orci accumsan ultricies at in libero accumsan Lorem Ipsum has been the industry's standard",
-      name: "Shafiq Hammad",
-      role: "Frontend Developer @ Pimjo",
-      image: "/images/testimonial/testimonial3.webp",
+        "สั่งหูฟังและสายชาร์จมาหลายอันแล้ว ของแท้ทุกอัน บริการดีเยี่ยม แอดมินตอบไวมากๆ จัดส่งไว ขอบคุณ Smart Electronic Thailand ครับ!",
+      name: "คุณสมพร",
+      role: "ลูกค้าประจำ @ ชลบุรี",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
     },
   ]
 
@@ -74,16 +74,14 @@ function Testimonial() {
         {/* Section Header */}
         <div className="relative mx-auto mb-12 max-w-155 pt-6 text-center md:mb-20 lg:pt-16">
           {/* Faded Title */}
-          <span className="absolute left-1/2 top-0 -translate-x-1/2 text-[60px] font-bold leading-none text-slate-100 dark:text-slate-800/50 select-none lg:text-[80px]">
-            TESTIMONIAL
+          <span className="absolute left-1/2 top-0 -translate-x-1/2 text-[60px] font-bold leading-none text-slate-100 dark:text-slate-600/50 select-none lg:text-[80px]">
+            REVIEW
           </span>
           <h2 className="relative mb-5 text-3xl font-semibold text-slate-900 dark:text-white sm:text-4xl md:text-[50px] md:leading-15">
-            What Our Clients Say About Us
+            ลูกค้าของเราพูดถึงเรา
           </h2>
           <p className="text-base text-slate-600 dark:text-slate-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-            convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
-            ante in maximus.
+            ความคิดเห็นจากลูกค้าจริงที่ไว้วางใจเลือกซื้อสินค้ากับเรา
           </p>
         </div>
 
